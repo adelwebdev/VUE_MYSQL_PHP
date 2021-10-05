@@ -2,10 +2,6 @@
   font-family: "font-1";
   src: url(fonts/SourceSansPro-Bold.ttf);
 }
-@font-face {
-  font-family: "font-2";
-  src: url(fonts/SourceSansPro-Ligth.ttf);
-}
 * {
   padding: 0;
   margin: 0;
@@ -298,13 +294,12 @@ i {
 }
 .lobby-container .list-container .container .text-container p {
   font-weight: 100;
+  text-align: justify;
   display: -webkit-box;
   -webkit-box-orient: vertical;
-  -webkit-line-clamp: 7;
+  -webkit-line-clamp: 8;
   overflow: hidden;
   color: #3E0018;
-  font-family: "font-2", sans-serif;
-  line-height: 24px;
 }
 @media screen and (max-width: 550px) {
   .lobby-container .list-container .container .text-container p {
@@ -320,6 +315,15 @@ i {
   .lobby-container .list-container .container img {
     height: 200px;
   }
+}
+
+.item-anim-enter-active, .item-anim-leave-active {
+  opacity: 1;
+  transition: 0.8s;
+}
+.item-anim-enter, .item-anim-leave-to {
+  opacity: 0;
+  transition: 0.1s;
 }
 
 nav {

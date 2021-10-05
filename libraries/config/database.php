@@ -1,40 +1,24 @@
 <?php
 
 /**
-*
-* Retourne une connexion à la db
-*
-* @return PDO 
-*/
+ * Retourne une connexion à la DB
+ * 
+ * @return PDO
+ */
 
 function getPDO(): PDO
 {
 
-    $servername = "localhost";
-    $dbname = "vue";
-    $user = "root";
-    $pass = "";
+  $servername = 'localhost';
+  $dbname = 'mydb';
+  $user = 'root';
+  $pass = '';
 
-    // si on est sur Mac alors $pass="root"
-    // une fois que tt ces infos sont stockés sur une variables on fait newPDO (nouvelle instance)
-    // on instancie un objet et à la fin on retourne la PDO
-    // ca veut dire lorsqu'on appel la fonction getPDO (n'importe où dans notre projet) ça fera une connexion à la db
+  $pdo = new PDO("mysql:host=$servername;dbname=$dbname", $user, $pass, [
+    PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION,
+    // mode de requête par défaut => renvoit des tableaux associatifs
+    PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_ASSOC
+  ]);
 
-    $pdo = new PDO(
-        "mysql:host=$servername; dbname=$dbname", 
-        $user, 
-        $pass, 
-        [
-        PDO::ATTR_ERRMODE, 
-        PDO::ERRMODE_EXCEPTION,
-        // mode de requête par default => renvoit des tableaux associatifs
-        PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_ASSOC
-        ]
-    );
-
-        return $pdo;
+  return $pdo;
 }
-
-// attention à bien tt recopier ici !!!!!!!
-
-

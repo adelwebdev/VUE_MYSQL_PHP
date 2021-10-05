@@ -3,7 +3,6 @@
 /**
  * Met en tampon le contenu des pages pour le rendre autour de l'architecture du layout
  */
-
 function render(string $path)
 {
   // ouverture tampon

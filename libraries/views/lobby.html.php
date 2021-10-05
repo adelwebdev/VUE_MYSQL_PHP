@@ -1,7 +1,4 @@
-<!-- avec id="vue-app" toute notre application sera borné dans cet ID (c là que vue va agir) -->
-<!-- maintenant on va dans vue.js (dans assets/js) et on crée une nouvelle instance de vue -->
-
-<div id="vue-app" class="lobby-container">
+<div class="lobby-container">
   <ul>
     <li class="name">
       <i class="fas fa-search"></i>

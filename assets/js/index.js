@@ -1,5 +1,3 @@
-// pr récupérer la data en pure Js (avant le Fetch)
-
 // get data from mySql
 // const list = new XMLHttpRequest();
 // list.onreadystatechange = function () {

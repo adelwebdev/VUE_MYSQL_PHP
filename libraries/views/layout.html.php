@@ -13,21 +13,12 @@
 
 <body>
 
-
   <?php include 'libraries/views/nav.html.php' ?>
 
   <div id="root"><?= $pageContent ?></div>
 
-
-
-  <!-- ici on install le CDN de Vue.js -->
   <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
-  <!-- on doit borner notre application vue dans lobby.html.php (aller la-bàs) -->
-
-  <!-- ici on copie le cdn de axios -->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.20.0/axios.min.js" ></script>
-
-  <!-- ici lien vers notre fichier vue.js -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.20.0/axios.min.js"></script>
   <script src="./assets/js/vue.js"></script>
 </body>
 
