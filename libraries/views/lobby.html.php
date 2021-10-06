@@ -1,4 +1,4 @@
-<div class="lobby-container">
+<div id="vue-app" class="lobby-container">
   <ul>
     <li class="name">
       <i class="fas fa-search"></i>
@@ -14,9 +14,29 @@
     </li>
   </ul>
 
-  <div class="wine-list">
-    <div class="wine-card">
-
+  <div class="list-container">
+    <div v-for ="wine, id in wines" v-bind:key="id" class="wine-list">
+      <div class="wine-card">
+        <div class="card-header">
+          <h2>{{ wine.name}}</h2>
+          <i @click="removeItem(id)" class = "fas fa-times"></i>
+        </div>
+        <div class="container">
+          <div class="text-container">
+            <div class="buttons">
+              <h4>{{ wine.year }}</h4>
+              <h4>{{ wine.country }}</h4>
+              <h4>{{ wine.grapes }}</h4>
+            </div>
+            <div class="location">
+              <i class="fas fa-map-marker-alt"></i>
+              <span>{{ wine.region }}</span>
+            </div>
+            <p>{{ wine.description }}</p>
+          </div>
+          <img :src="getImgUrl(wine.picture)" alt="photo-bouteille">
+        </div>
+  </div>
     </div>
   </div>
 </div>
