@@ -2,7 +2,7 @@
   <ul>
     <li class="name">
       <i class="fas fa-search"></i>
-      <input type="search" class="search" placeholder="Entrez le nom d'un vin...">
+      <input v-model="searchKey" type="search" class="search" placeholder="Entrez le nom d'un vin...">
     </li>
 
     <li class="country">
@@ -14,8 +14,10 @@
     </li>
   </ul>
 
+  <h3 v-if="search.length == 0">Aucun résultat</h3>
+
   <div class="list-container">
-    <div v-for ="wine, id in wines" v-bind:key="id" class="wine-list">
+    <div v-for ="wine, id in search" v-bind:key="id" class="wine-list">
       <div class="wine-card">
         <div class="card-header">
           <h2>{{ wine.name}}</h2>
