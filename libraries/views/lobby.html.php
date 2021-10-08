@@ -1,19 +1,30 @@
 <div id="vue-app" class="lobby-container">
   <ul>
-    <li class="name">
+    <li v-on:click="searchInput('name')" class="name">
       <i class="fas fa-search"></i>
-      <input v-model="searchKey" type="search" class="search" placeholder="Entrez le nom d'un vin...">
+      <input v-if='inputType == "name" ' v-model="searchKey" type="search" class="search" placeholder="Entrez le nom d'un vin...">
     </li>
 
-    <li class="country">
+    <li v-on:click="searchInput('country')" class="country">
       <i class="fas fa-globe-europe"></i>
+      <select v-show="inputType =='country' " v-model="countrySelected">
+        <option value="">Choisissez un pays</option>
+        <option v-for="option in countryOption" :value="option.id">{{option.name}}</option>
+      </select>
     </li>
 
-    <li class="grapes">
+    <li  v-on:click="searchInput('grapes')" class="grapes">
       <i class="fas fa-wine-glass-alt"></i>
+      <div v-if="inputType == 'grapes'" class="radio-container">
+        <div v-for="grape in grapesRadio" class="radio">
+          <label :for="grape.name">{{grape.name}}</label>
+          <input v-model="grapesSelected" :id="grape.name" type="radio"  class="radio-button">
+        </div>
+      </div>
     </li>
   </ul>
 
+  <h1 v-if="inputType == '' " class="title">Liste des vins</h1>
   <h3 v-if="search.length == 0">Aucun résultat</h3>
 
   <div class="list-container">
