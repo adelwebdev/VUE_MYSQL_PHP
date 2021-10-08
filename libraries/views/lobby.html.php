@@ -1,4 +1,8 @@
 <div id="vue-app" class="lobby-container">
+  <div @click="cancelSearch" v-if="searchKey || countrySelected || grapesSelected" class="cancel">
+    <h5>Annuler recherche</h5>
+    <i class="fas fa-times"></i>
+  </div>
   <ul>
     <li v-on:click="searchInput('name')" class="name">
       <i class="fas fa-search"></i>
@@ -18,7 +22,7 @@
       <div v-if="inputType == 'grapes'" class="radio-container">
         <div v-for="grape in grapesRadio" class="radio">
           <label :for="grape.name">{{grape.name}}</label>
-          <input v-model="grapesSelected" :id="grape.name" type="radio"  class="radio-button">
+          <input v-model="grapesSelected" :id="grape.name" :value="grape.name" type="radio" class="radio-button">
         </div>
       </div>
     </li>
@@ -27,8 +31,8 @@
   <h1 v-if="inputType == '' " class="title">Liste des vins</h1>
   <h3 v-if="search.length == 0">Aucun résultat</h3>
 
-  <div class="list-container">
-    <div v-for ="wine, id in search" v-bind:key="id" class="wine-list">
+  <transition-group name="item-anim" tag="div" class="list-container">
+    <div v-for ="wine, id in search" v-bind:key="wine.id" class="wine-list">
       <div class="wine-card">
         <div class="card-header">
           <h2>{{ wine.name}}</h2>
@@ -49,7 +53,7 @@
           </div>
           <img :src="getImgUrl(wine.picture)" alt="photo-bouteille">
         </div>
-  </div>
+      </div>
     </div>
-  </div>
+  </transition-group>
 </div>
